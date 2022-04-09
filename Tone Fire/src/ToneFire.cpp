@@ -326,6 +326,14 @@ void ToneFire::StudioSound::StopEvent(const std::string& eventName)
 	_bankEventInstances[eventName]->stop(FMOD_STUDIO_STOP_IMMEDIATE);
 }
 
+void ToneFire::StudioSound::SetEventVolume(const std::string& eventName, float volume)
+{
+	if (_bankEventDescriptions[eventName] == nullptr)
+		LoadEvent(eventName);
+	FMOD_RESULT result = _bankEventInstances[eventName]->setVolume(volume);
+	_instance->_ErrorCheck(result, "Volume of" + eventName + "Set");
+}
+
 void ToneFire::StudioSound::SetEventParameter(const std::string& eventName, const std::string& parameterName, float paramValue)
 {
 	if (_bankEventDescriptions[eventName] == nullptr)

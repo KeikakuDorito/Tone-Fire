@@ -140,6 +140,9 @@ namespace ToneFire {
 		//If the event given is not loaded into memory, it will load that event.
 		void StopEvent(const std::string& eventName);
 
+		//Sets the Volume for the Event
+		void SetEventVolume(const std::string& eventName, float volume);
+
 		//Sets the parameter of a particular event.
 		//If the event given is not loaded into memory, it will load that event.
 		//Will throw an error if the parameter does not exist.
